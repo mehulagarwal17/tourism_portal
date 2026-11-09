@@ -1,0 +1,956 @@
+/* ===================================================================
+   Online Tourism Portal - Custom Theme Stylesheet
+   Modern, Travel-Inspired UI System
+   Palette: Color Hunt 0915401b2cc17692ffabd2fa
+   - Midnight Navy: #091540
+   - Royal Cobalt:  #1b2cc1
+   - Periwinkle:    #7692ff
+   - Ice / Sky:     #abd2fa
+   =================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Satisfy&display=swap');
+
+:root {
+  /* Color Hunt 0915401b2cc17692ffabd2fa Tokens */
+  --tp-midnight: #091540;
+  --tp-royal: #1b2cc1;
+  --tp-periwinkle: #7692ff;
+  --tp-ice: #abd2fa;
+
+  /* Theme Role Mappings */
+  --tp-primary: #1b2cc1;
+  --tp-primary-light: #7692ff;
+  --tp-primary-dark: #091540;
+  --tp-accent: #7692ff;
+  --tp-accent-hover: #1b2cc1;
+  --tp-accent-subtle: #abd2fa;
+
+  /* Neutrals & Surfaces */
+  --tp-bg-light: #f3f7fd;
+  --tp-card-bg: #ffffff;
+  --tp-text-dark: #091540;
+  --tp-text-muted: #4e5f7d;
+  --tp-border: #d4e3f8;
+
+  --tp-radius: 12px;
+  --tp-radius-lg: 18px;
+  --tp-shadow-sm: 0 2px 8px rgba(9, 21, 64, 0.06);
+  --tp-shadow-md: 0 8px 24px rgba(9, 21, 64, 0.1);
+  --tp-shadow-lg: 0 18px 42px rgba(9, 21, 64, 0.16);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--tp-text-dark);
+  background-color: var(--tp-bg-light);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* Typography Enhancements */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--tp-midnight);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.font-serif-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.typewriter-word {
+  color: var(--tp-ice);
+  background: linear-gradient(135deg, #abd2fa 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  min-width: 1.5ch;
+  border-bottom: 3px solid var(--tp-periwinkle);
+  padding-bottom: 2px;
+  position: relative;
+  text-shadow: none;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace;
+  font-style: normal;
+  font-weight: 300;
+  color: #abd2fa;
+  animation: tpBlink 0.8s infinite;
+  margin-left: 3px;
+  vertical-align: baseline;
+  -webkit-text-fill-color: initial;
+}
+
+@keyframes tpBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Eyebrows & Accents */
+.section-eyebrow,
+.text-accent-tp {
+  color: var(--tp-periwinkle) !important;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.text-midnight {
+  color: var(--tp-midnight) !important;
+}
+
+.text-royal {
+  color: var(--tp-royal) !important;
+}
+
+.text-periwinkle {
+  color: var(--tp-periwinkle) !important;
+}
+
+.text-ice {
+  color: var(--tp-ice) !important;
+}
+
+.bg-midnight {
+  background-color: var(--tp-midnight) !important;
+}
+
+.bg-royal {
+  background-color: var(--tp-royal) !important;
+}
+
+.bg-periwinkle {
+  background-color: var(--tp-periwinkle) !important;
+}
+
+.bg-ice {
+  background-color: var(--tp-ice) !important;
+}
+
+/* Palette Specific Badges */
+.badge-palette-navy {
+  background-color: var(--tp-midnight) !important;
+  color: var(--tp-ice) !important;
+}
+
+.badge-palette-royal {
+  background-color: var(--tp-royal) !important;
+  color: #ffffff !important;
+}
+
+.badge-palette-periwinkle {
+  background-color: var(--tp-periwinkle) !important;
+  color: #ffffff !important;
+}
+
+.badge-palette-ice {
+  background-color: var(--tp-ice) !important;
+  color: var(--tp-midnight) !important;
+  font-weight: 700;
+}
+
+/* ===================================================================
+   Glassmorphism Cylindrical / Capsule Navigation Bar
+   Floating with left and right margins and frosted glass aesthetics
+   =================================================================== */
+
+.navbar-floating-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1040;
+  padding: 16px 28px 8px 28px;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar-floating-container {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0;
+  pointer-events: auto;
+}
+
+/* Glassmorphism Cylindrical Navbar */
+.navbar-custom,
+.navbar-glass-capsule {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 9999px; /* Cylindrical tube/capsule shape */
+  border: 1px solid rgba(171, 210, 250, 0.65);
+  box-shadow: 
+    0 14px 38px -6px rgba(9, 21, 64, 0.12),
+    0 4px 14px -2px rgba(27, 44, 193, 0.08),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 1px 0 rgba(171, 210, 250, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: 64px;
+}
+
+.navbar-glass-capsule:hover {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(118, 146, 255, 0.7);
+  box-shadow: 
+    0 18px 44px -6px rgba(9, 21, 64, 0.16),
+    0 6px 18px -2px rgba(27, 44, 193, 0.1),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 1);
+}
+
+.navbar-brand-logo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--tp-midnight);
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 4px 0;
+}
+
+.navbar-brand-logo .logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--tp-midnight), var(--tp-royal));
+  color: #fff;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  box-shadow: 0 4px 12px rgba(27, 44, 193, 0.3);
+}
+
+.navbar-glass-capsule .nav-link {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--tp-midnight);
+  padding: 0.5rem 1.05rem !important;
+  border-radius: 9999px;
+  margin: 0 2px;
+  transition: all 0.2s ease;
+}
+
+.navbar-glass-capsule .nav-link:hover {
+  color: var(--tp-royal) !important;
+  background-color: rgba(118, 146, 255, 0.14);
+}
+
+.navbar-glass-capsule .nav-link.active {
+  color: var(--tp-royal) !important;
+  background-color: rgba(171, 210, 250, 0.4);
+  font-weight: 700;
+}
+
+/* Glassmorphism Dropdown */
+.dropdown-glass {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(171, 210, 250, 0.7) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 16px 36px rgba(9, 21, 64, 0.16) !important;
+  min-width: 220px;
+}
+
+.dropdown-glass .dropdown-item {
+  border-radius: 10px;
+  margin: 2px 8px;
+  width: calc(100% - 16px);
+  transition: all 0.2s ease;
+  color: var(--tp-midnight);
+}
+
+.dropdown-glass .dropdown-item:hover {
+  background-color: rgba(118, 146, 255, 0.12);
+  color: var(--tp-royal);
+}
+
+/* Mobile Responsiveness for Cylindrical Navbar */
+@media (max-width: 991.98px) {
+  .navbar-floating-wrapper {
+    padding: 10px 14px 6px 14px;
+  }
+
+  .navbar-glass-capsule {
+    border-radius: 28px;
+    padding: 8px 16px;
+  }
+
+  .navbar-glass-capsule .navbar-collapse {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 16px;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    border: 1px solid rgba(171, 210, 250, 0.7);
+    box-shadow: 0 12px 30px rgba(9, 21, 64, 0.14);
+  }
+
+  .navbar-glass-capsule .nav-link {
+    border-radius: 12px;
+    padding: 0.6rem 1rem !important;
+    margin: 2px 0;
+  }
+
+  .navbar-glass-toggler {
+    width: 42px;
+    height: 42px;
+    border-radius: 50% !important;
+    background: rgba(118, 146, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background 0.2s ease;
+  }
+
+  .navbar-glass-toggler:hover,
+  .navbar-glass-toggler:focus {
+    background: rgba(171, 210, 250, 0.3);
+  }
+}
+
+/* Custom Buttons matching 4-color palette */
+.btn-primary-tp {
+  background: linear-gradient(135deg, var(--tp-royal), #3144e3);
+  color: #ffffff !important;
+  border: none;
+  font-weight: 600;
+  padding: 0.65rem 1.4rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(27, 44, 193, 0.3);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary-tp:hover {
+  background: linear-gradient(135deg, var(--tp-midnight), var(--tp-royal));
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(9, 21, 64, 0.35);
+}
+
+.btn-accent-tp {
+  background: linear-gradient(135deg, var(--tp-periwinkle), var(--tp-royal));
+  color: #ffffff !important;
+  border: none;
+  font-weight: 600;
+  padding: 0.65rem 1.4rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(118, 146, 255, 0.38);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-accent-tp:hover {
+  background: linear-gradient(135deg, var(--tp-midnight), var(--tp-royal));
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(9, 21, 64, 0.35);
+}
+
+.btn-outline-tp {
+  border: 1.5px solid var(--tp-royal);
+  color: var(--tp-royal) !important;
+  background: transparent;
+  font-weight: 600;
+  padding: 0.6rem 1.35rem;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-outline-tp:hover {
+  background-color: var(--tp-royal);
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(27, 44, 193, 0.25);
+}
+
+/* Hero Section with Midnight Navy & Periwinkle */
+.hero-banner {
+  position: relative;
+  min-height: 540px;
+  background: linear-gradient(180deg, rgba(9, 21, 64, 0.8) 0%, rgba(9, 21, 64, 0.94) 100%),
+              url('https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+  border-bottom: 4px solid var(--tp-periwinkle);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(118, 146, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(171, 210, 250, 0.45);
+  color: var(--tp-ice);
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.hero-search-card {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: var(--tp-radius-lg);
+  border: 1px solid rgba(171, 210, 250, 0.7);
+  box-shadow: 0 20px 45px rgba(9, 21, 64, 0.22);
+  padding: 24px;
+  color: var(--tp-midnight);
+}
+
+/* Destination & Package Cards */
+.travel-card {
+  background: #ffffff;
+  border-radius: var(--tp-radius);
+  border: 1px solid var(--tp-border);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--tp-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.travel-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--tp-shadow-lg);
+  border-color: var(--tp-periwinkle);
+}
+
+.card-img-wrapper {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background-color: var(--tp-ice);
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.travel-card:hover .card-img-wrapper img {
+  transform: scale(1.06);
+}
+
+.card-badge-top-left {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(9, 21, 64, 0.88);
+  backdrop-filter: blur(6px);
+  color: var(--tp-ice);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid rgba(171, 210, 250, 0.3);
+}
+
+.card-badge-top-right {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: linear-gradient(135deg, var(--tp-royal), var(--tp-periwinkle));
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(9, 21, 64, 0.25);
+}
+
+.travel-card .card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.tag-badge {
+  display: inline-block;
+  background: rgba(171, 210, 250, 0.25);
+  color: var(--tp-midnight);
+  font-size: 0.75rem;
+  padding: 4px 9px;
+  border-radius: 6px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  border: 1px solid rgba(171, 210, 250, 0.6);
+  font-weight: 500;
+}
+
+/* Feature & Why Us Items */
+.feature-box {
+  background: #ffffff;
+  border-radius: var(--tp-radius);
+  padding: 30px 24px;
+  text-align: center;
+  border: 1px solid var(--tp-border);
+  box-shadow: var(--tp-shadow-sm);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.feature-box:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--tp-shadow-md);
+  border-color: var(--tp-periwinkle);
+}
+
+.feature-icon-circle {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, rgba(171, 210, 250, 0.45), rgba(118, 146, 255, 0.25));
+  color: var(--tp-royal);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin-bottom: 20px;
+  border: 1px solid rgba(118, 146, 255, 0.3);
+}
+
+/* Review Cards */
+.review-card {
+  background: #ffffff;
+  border-radius: var(--tp-radius);
+  border: 1px solid var(--tp-border);
+  padding: 24px;
+  box-shadow: var(--tp-shadow-sm);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-author-avatar {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--tp-midnight), var(--tp-royal));
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(27, 44, 193, 0.25);
+}
+
+/* Day-wise Itinerary Timeline */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 12px;
+  width: 3px;
+  background: var(--tp-border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -32px;
+  top: 4px;
+  width: 26px;
+  height: 26px;
+  background: var(--tp-royal);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 0 0 4px var(--tp-ice);
+}
+
+/* Booking Widget Card */
+.sticky-booking-card {
+  position: sticky;
+  top: 90px;
+  background: #ffffff;
+  border-radius: var(--tp-radius-lg);
+  border: 1px solid var(--tp-border);
+  box-shadow: var(--tp-shadow-lg);
+  padding: 28px;
+}
+
+/* Admin Dashboard Cards */
+.admin-stat-card {
+  background: #ffffff;
+  border-radius: var(--tp-radius);
+  border: 1px solid var(--tp-border);
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--tp-shadow-sm);
+  transition: all 0.25s ease;
+}
+
+.admin-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--tp-shadow-md);
+  border-color: var(--tp-periwinkle);
+}
+
+.admin-stat-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-right: 18px;
+  flex-shrink: 0;
+}
+
+/* Printable Voucher Style */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print, header, footer, .navbar-custom, .btn {
+    display: none !important;
+  }
+  .print-voucher {
+    box-shadow: none !important;
+    border: 2px solid #333333 !important;
+    padding: 20px !important;
+  }
+}
+
+/* Footer in Midnight Navy #091540 */
+.footer-tp {
+  background: var(--tp-midnight);
+  color: var(--tp-ice);
+  border-top: 4px solid var(--tp-periwinkle);
+}
+
+.footer-tp h5 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+}
+
+.footer-tp a {
+  color: var(--tp-ice);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-tp a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  background: #050d26;
+  border-top: 1px solid rgba(171, 210, 250, 0.12);
+  color: var(--tp-periwinkle);
+  font-size: 0.85rem;
+}
+
+/* ===================================================================
+   Interactive Google Maps - Custom Pins, Controls & Info Cards
+   Palette: #091540 (Midnight), #1b2cc1 (Royal), #7692ff, #abd2fa
+   =================================================================== */
+
+.map-explorer-wrapper {
+  background: #ffffff;
+  border-radius: var(--tp-radius-lg);
+  border: 1px solid var(--tp-border);
+  box-shadow: var(--tp-shadow-md);
+  overflow: hidden;
+}
+
+.map-container-box {
+  width: 100%;
+  height: 540px;
+  min-height: 480px;
+  background-color: #eaf1fa;
+  position: relative;
+}
+
+/* Advanced Marker Custom Pin */
+.gmp-custom-dest-pin {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -100%);
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gmp-custom-dest-pin:hover {
+  transform: translate(-50%, -108%) scale(1.08);
+  z-index: 100;
+}
+
+.dest-pin-badge {
+  background: linear-gradient(135deg, var(--tp-midnight, #091540), var(--tp-royal, #1b2cc1));
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 9999px;
+  padding: 4px 10px 4px 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 4px 12px rgba(9, 21, 64, 0.35);
+  white-space: nowrap;
+}
+
+.dest-pin-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--tp-periwinkle, #7692ff);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.dest-pin-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.dest-pin-pulse {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--tp-royal, #1b2cc1);
+  margin-top: 2px;
+  box-shadow: 0 0 0 4px rgba(118, 146, 255, 0.4);
+}
+
+/* Custom InfoWindow Card */
+.gmp-info-card {
+  width: 280px;
+  max-width: 300px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.info-card-img {
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-color: var(--tp-ice);
+}
+
+.info-card-state {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(9, 21, 64, 0.85);
+  backdrop-filter: blur(4px);
+  color: var(--tp-ice);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.info-card-pkg {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: linear-gradient(135deg, var(--tp-royal), var(--tp-periwinkle));
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* Sidebar Destination Item */
+.map-dest-sidebar-item {
+  border-radius: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--tp-border);
+  background: #ffffff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.map-dest-sidebar-item:hover {
+  background-color: #f0f6ff;
+  border-color: var(--tp-periwinkle);
+  transform: translateX(3px);
+}
+
+.map-dest-sidebar-item.active {
+  background-color: rgba(171, 210, 250, 0.35);
+  border-color: var(--tp-royal);
+  box-shadow: 0 2px 8px rgba(27, 44, 193, 0.15);
+}
+
+/* ===================================================================
+   Omni-Channel Voice Booking Concierge & Live Ticker Styling
+   =================================================================== */
+.btn-voice-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 1040;
+  border-radius: 50px;
+  padding: 12px 22px;
+  box-shadow: 0 10px 25px rgba(27, 44, 193, 0.35);
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--tp-midnight), var(--tp-royal));
+  color: #ffffff !important;
+  border: 1.5px solid rgba(171, 210, 250, 0.4);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-voice-fab:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 14px 30px rgba(27, 44, 193, 0.45);
+}
+
+.voice-wave-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 40px;
+}
+
+.voice-wave-bar {
+  width: 4px;
+  height: 10px;
+  background-color: var(--tp-periwinkle);
+  border-radius: 4px;
+  transition: height 0.15s ease;
+}
+
+.voice-wave-bar.animating {
+  animation: waveBarBounce 0.8s ease-in-out infinite alternate;
+}
+
+.voice-wave-bar:nth-child(1) { animation-delay: 0.1s; }
+.voice-wave-bar:nth-child(2) { animation-delay: 0.25s; }
+.voice-wave-bar:nth-child(3) { animation-delay: 0.4s; }
+.voice-wave-bar:nth-child(4) { animation-delay: 0.15s; }
+.voice-wave-bar:nth-child(5) { animation-delay: 0.3s; }
+.voice-wave-bar:nth-child(6) { animation-delay: 0.5s; }
+
+@keyframes waveBarBounce {
+  0% { height: 8px; }
+  100% { height: 34px; background-color: var(--tp-royal); }
+}
+
+.voice-mic-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 20px rgba(27, 44, 193, 0.25);
+  cursor: pointer;
+}
+
+.pulse-active {
+  animation: micPulse 1.5s infinite;
+}
+
+@keyframes micPulse {
+  0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); }
+  70% { box-shadow: 0 0 0 16px rgba(220, 53, 69, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+}
+
+.voice-quick-prompt {
+  font-size: 0.8rem;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background-color: #f0f6ff;
+  border: 1px solid var(--tp-ice);
+  color: var(--tp-royal);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+  user-select: none;
+}
+
+.voice-quick-prompt:hover {
+  background-color: var(--tp-royal);
+  color: #ffffff;
+  border-color: var(--tp-royal);
+}
+
+.live-voice-ticker-wrapper {
+  background: linear-gradient(90deg, #ffffff, #f0f6ff);
+  border: 1px solid var(--tp-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.live-voice-ticker-content {
+  display: flex;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px 16px;
+}
+
+.live-voice-ticker-content::-webkit-scrollbar {
+  display: none;
+}
+
+

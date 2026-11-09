@@ -1,0 +1,6 @@
+{
+  "name": "Online Tourism Portal",
+  "description": "A comprehensive, database-driven PHP & MySQL tourism portal with user booking workflows, destination discovery, tour package catalogs, and an administrative management dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
